@@ -1,0 +1,24 @@
+﻿using System;
+using DeveloperQuiz.Domains.Models;
+
+namespace DeveloperQuiz.Domains.Request
+{
+    public class BookRequest : Book
+    {
+		const int maxPageSize = 50;
+		public int? Page { get; set; } = null;
+
+		private int _pageSize = 10;
+		public int PageSize
+		{
+			get
+			{
+				return _pageSize;
+			}
+			set
+			{
+				_pageSize = (value > maxPageSize) ? maxPageSize : value;
+			}
+		}
+	}
+}

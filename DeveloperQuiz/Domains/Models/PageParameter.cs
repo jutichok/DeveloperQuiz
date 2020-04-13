@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace DeveloperQuiz.Domains.Models
+{
+    public class PageParameter
+    {
+		const int maxPageSize = 50;
+		public int? Page { get; set; }
+
+		private int _pageSize = 10;
+		public int PageSize
+		{
+			get
+			{
+				return _pageSize;
+			}
+			set
+			{
+				_pageSize = (value > maxPageSize) ? maxPageSize : value;
+			}
+		}
+	}
+}
